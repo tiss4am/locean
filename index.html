@@ -13,25 +13,8 @@
 
 <body>
 
-	<!-- ================= HERO / FOND MARIN ANIMÉ ================= -->
-	<header class="hero" id="accueil">
-		<div class="ocean-scene" aria-hidden="true">
-			<video class="hero-video" autoplay muted loop playsinline poster="assets/hero-poster.jpg">
-      <source src="assets/hero-video.mp4" type="video/mp4">
-    </video>
-			<div class="hero-video-overlay"></div>
-			<div class="bubbles">
-				<span></span><span></span><span></span><span></span><span></span>
-				<span></span><span></span><span></span><span></span><span></span>
-				<span></span><span></span><span></span><span></span><span></span>
-				<span></span><span></span><span></span>
-			</div>
-			<div class="caustics"></div>
-			<svg class="hero-wave" viewBox="0 0 1440 160" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M0,64 C240,140 480,0 720,48 C960,96 1200,150 1440,80 L1440,160 L0,160 Z"></path>
-    </svg>
-		</div>
-
+	<!-- ================= HERO ================= -->
+	<header class="hero hero--cream" id="accueil">
 		<nav class="navbar" id="navbar">
 			<a href="#accueil" class="brand">
 				<img src="assets/logo.png" alt="L'Océan" class="brand-logo">
@@ -49,50 +32,140 @@
 			<a href="reservation.html" class="btn btn--ghost nav-cta">Réserver</a>
 		</nav>
 
-		<div class="hero-content">
-			<p class="eyebrow">Villiers-le-Bel · Cuisine de la mer</p>
-			<h1>Fraîcheur de la mer,<br>saveurs de la Méditerranée</h1>
-			<p class="hero-text">Poissons choisis sur l'étal, cuisson à la commande et parfums méditerranéens, servis dans une atmosphère chaleureuse et familiale.</p>
-			<div class="hero-actions">
-				<a href="reservation.html" class="btn btn--solid">Réserver une table</a>
-				<a href="https://www.google.com/maps/search/?api=1&query=5+Av.+des+Entrepreneurs+95400+Villiers-le-Bel+L%27Oc%C3%A9an" target="_blank" rel="noopener" class="btn btn--outline">Voir l'itinéraire</a>
+		<div class="hero-content--split">
+			<div class="hero-copy">
+				<p class="eyebrow eyebrow--teal">Villiers-le-Bel · Cuisine de la mer</p>
+				<h1 class="hero-title-split">Fraîcheur de la mer, <span class="text-teal">saveurs</span> de la Méditerranée</h1>
+				<p class="hero-text hero-text--dark">Poissons choisis sur l'étal, cuisson à la commande et parfums méditerranéens, servis dans une atmosphère chaleureuse et familiale.</p>
+				<div class="hero-actions hero-actions--start">
+					<a href="reservation.html" class="btn btn--ink">Réserver une table</a>
+					<a href="https://www.google.com/maps/search/?api=1&query=5+Av.+des+Entrepreneurs+95400+Villiers-le-Bel+L%27Oc%C3%A9an" target="_blank" rel="noopener" class="btn btn--outline-ink">Voir l'itinéraire</a>
+				</div>
+				<div class="hero-rating hero-rating--dark">
+					<span class="stars">★★★★★</span>
+					<span>4,5 · 242 avis</span>
+					<span class="dot">·</span>
+					<span>20–30 € / pers.</span>
+				</div>
 			</div>
-			<div class="hero-rating">
-				<span class="stars">★★★★★</span>
-				<span>4,5 · 242 avis</span>
-				<span class="dot">·</span>
-				<span>20–30 € / pers.</span>
+			<div class="hero-visual">
+				<img src="assets/discover-fish-2.png" alt="" class="hero-fish" aria-hidden="true">
 			</div>
 		</div>
 
-		<a href="#histoire" class="scroll-cue" aria-label="Défiler vers le bas">
-			<span></span>
-		</a>
+		<div class="hero-foam" aria-hidden="true">
+			<svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+				<path d="M0,50 C90,90 180,10 270,50 C360,90 450,10 540,50 C630,90 720,10 810,50 C900,90 990,10 1080,50 C1170,90 1260,10 1350,50 C1395,70 1420,60 1440,50 L1440,120 L0,120 Z"></path>
+			</svg>
+		</div>
 	</header>
 
-	<!-- ================= DÉCOUVRIR ================= -->
-	<section class="discover">
-		<div class="container discover__intro">
-			<img src="assets/discover-fish-1.png" alt="" class="discover__fish discover__fish--1" aria-hidden="true">
-			<img src="assets/discover-fish-2.png" alt="" class="discover__fish discover__fish--2" aria-hidden="true">
-			<img src="assets/discover-fish-3.png" alt="" class="discover__fish discover__fish--3" aria-hidden="true">
-			<p class="eyebrow eyebrow--center">Découvrir</p>
-			<h2 class="center">Le meilleur de la mer</h2>
-			<p class="lead center discover__text">
-				Chez L'Océan, chaque poisson est choisi sur l'étal et cuisiné à la commande, dans la pure tradition méditerranéenne. Crustacés, grillades et plateaux généreux se dégustent en terrasse ou en famille, accompagnés d'un bon verre de thé à la menthe.
-			</p>
+	<!-- ================= FISH RESTAURANT ================= -->
+	<section class="fish-intro">
+		<div class="container fish-intro__grid">
+			<div class="blob-shape">
+				<img src="assets/plat1.jpg" alt="Plateau de fruits de mer de L'Océan">
+			</div>
+			<div class="fish-intro__text">
+				<p class="eyebrow">Fish restaurant</p>
+				<h2>Le meilleur de la mer</h2>
+				<p class="lead">
+					Chez L'Océan, chaque poisson est choisi sur l'étal et cuisiné à la commande, dans la pure tradition méditerranéenne. Crustacés, grillades et plateaux généreux se dégustent en terrasse ou en famille, accompagnés d'un bon verre de thé à la menthe.
+				</p>
+				<a href="menu.html" class="btn btn--cream">En savoir plus</a>
+			</div>
 		</div>
+	</section>
 
-		<div class="container discover-grid">
-			<a href="#histoire" class="discover-card">
-				<span class="discover-card__label">Notre histoire</span>
-			</a>
-			<a href="menu.html" class="discover-card">
-				<span class="discover-card__label">Le Menu</span>
-			</a>
-			<a href="https://www.facebook.com/p/Locean-Villiers-le-bel-100057273706252/?locale=fr_FR" target="_blank" rel="noopener" class="discover-card">
-				<span class="discover-card__label">Actualités &amp; Événements</span>
-			</a>
+	<!-- ================= NOS PRESTATIONS ================= -->
+	<section class="prestations">
+		<div class="container prestations__intro">
+			<p class="eyebrow eyebrow--center">Nos Prestations</p>
+			<h2 class="center">Ce que nous vous proposons</h2>
+		</div>
+		<div class="container carousel" data-carousel>
+			<button class="carousel-arrow carousel-arrow--prev" data-carousel-prev aria-label="Précédent">‹</button>
+			<div class="prestations-grid" data-carousel-track>
+				<a href="menu.html" class="prestation-card prestation-card--photo" style="background-image:url('assets/plat2.jpg')">
+					<span class="prestation-card__label">Le Menu</span>
+				</a>
+				<div class="prestation-card prestation-card--icon">
+					<div class="prestation-card__icon">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+					</div>
+					<h3>Réservation</h3>
+					<p>Réservez votre table en ligne ou par téléphone, pour un déjeuner en famille ou un dîner entre amis.</p>
+					<a href="reservation.html" class="btn btn--cream btn--small">En savoir plus</a>
+				</div>
+				<a href="https://www.facebook.com/p/Locean-Villiers-le-bel-100057273706252/?locale=fr_FR" target="_blank" rel="noopener" class="prestation-card prestation-card--photo" style="background-image:url('assets/plat3.jpg')">
+					<span class="prestation-card__label">Actualités &amp; Événements</span>
+				</a>
+			</div>
+			<button class="carousel-arrow carousel-arrow--next" data-carousel-next aria-label="Suivant">›</button>
+		</div>
+	</section>
+
+	<!-- ================= NOS GALERIES ================= -->
+	<section class="home-gallery">
+		<div class="container home-gallery__intro">
+			<p class="eyebrow eyebrow--center">Nos Galeries</p>
+			<h2 class="center">Un avant-goût de nos assiettes</h2>
+		</div>
+		<div class="container home-gallery-grid">
+			<a href="galerie.html"><img src="assets/plat1.jpg" alt="Plateau mixte de fruits de mer frits"></a>
+			<a href="galerie.html"><img src="assets/plat2.jpg" alt="Plateau de grillades de la mer"></a>
+			<a href="galerie.html"><img src="assets/plat3.jpg" alt="Poissons et moules braisés au four"></a>
+		</div>
+		<div class="container center" style="margin-top:40px;">
+			<a href="galerie.html" class="btn btn--cream">Voir plus</a>
+		</div>
+	</section>
+
+	<!-- ================= NOS AVIS CLIENTS ================= -->
+	<section class="testimonials">
+		<div class="container testimonials__intro">
+			<p class="eyebrow eyebrow--center">Nos avis clients</p>
+			<h2 class="center">Ce qu'ils pensent de nous</h2>
+		</div>
+		<!-- Exemples à remplacer par de vrais avis (Google, Facebook...) -->
+		<div class="container carousel" data-carousel>
+			<button class="carousel-arrow carousel-arrow--prev" data-carousel-prev aria-label="Précédent">‹</button>
+			<div class="testimonials-grid" data-carousel-track>
+				<article class="testimonial-card">
+					<div class="testimonial-card__head">
+						<span class="testimonial-card__avatar">MD</span>
+						<div>
+							<h4>Marie D.</h4>
+							<p>Avis Google</p>
+						</div>
+					</div>
+					<span class="stars">★★★★★</span>
+					<p class="testimonial-card__text">Accueil chaleureux et poissons d'une fraîcheur incomparable. La formule au kilo est un super rapport qualité-prix, on reviendra en famille !</p>
+				</article>
+				<article class="testimonial-card">
+					<div class="testimonial-card__head">
+						<span class="testimonial-card__avatar">KB</span>
+						<div>
+							<h4>Karim B.</h4>
+							<p>Avis Google</p>
+						</div>
+					</div>
+					<span class="stars">★★★★★</span>
+					<p class="testimonial-card__text">La grande terrasse est parfaite l'été et le plateau de grillades est généreux. Le petit spectacle du week-end est un vrai plus.</p>
+				</article>
+				<article class="testimonial-card">
+					<div class="testimonial-card__head">
+						<span class="testimonial-card__avatar">SL</span>
+						<div>
+							<h4>Sophie L.</h4>
+							<p>Avis Google</p>
+						</div>
+					</div>
+					<span class="stars">★★★★★</span>
+					<p class="testimonial-card__text">Très bon rapport qualité-prix pour des produits vraiment frais. Le personnel est adorable, on s'y sent comme à la maison.</p>
+				</article>
+			</div>
+			<button class="carousel-arrow carousel-arrow--next" data-carousel-next aria-label="Suivant">›</button>
 		</div>
 	</section>
 
@@ -151,6 +224,69 @@
 						</a>
 					</div>
 				</div>
+			</aside>
+		</div>
+	</section>
+
+	<!-- ================= CONTACT ================= -->
+	<section class="home-contact">
+		<div class="container home-contact__grid">
+			<form class="home-contact-form" id="homeContactForm">
+				<div class="form-row">
+					<div class="form-field">
+						<label for="hcNom">Nom</label>
+						<input type="text" id="hcNom" name="nom" required>
+					</div>
+					<div class="form-field">
+						<label for="hcPrenom">Prénom</label>
+						<input type="text" id="hcPrenom" name="prenom" required>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-field">
+						<label for="hcTel">Téléphone</label>
+						<input type="tel" id="hcTel" name="telephone" required>
+					</div>
+					<div class="form-field">
+						<label for="hcEmail">Email</label>
+						<input type="email" id="hcEmail" name="email" required>
+					</div>
+				</div>
+				<div class="form-field">
+					<label for="hcMessage">Message</label>
+					<textarea id="hcMessage" name="message" rows="4"></textarea>
+				</div>
+				<label class="consent">
+					<input type="checkbox" required>
+					J'accepte que mes informations soient utilisées pour me recontacter.
+				</label>
+				<button type="submit" class="btn btn--cream">Envoyer</button>
+				<p class="form-note" id="homeContactNote" hidden>Merci, votre message a bien été envoyé !</p>
+			</form>
+
+			<aside class="home-contact-info">
+				<h3>Contactez-nous</h3>
+				<ul class="home-contact-list">
+					<li>
+						<span class="home-contact-list__icon">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+						</span>
+						<a href="tel:0139928640">01 39 92 86 40</a>
+					</li>
+					<li>
+						<span class="home-contact-list__icon">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+						</span>
+						5 Av. des Entrepreneurs, 95400 Villiers-le-Bel
+					</li>
+					<li>
+						<span class="home-contact-list__icon">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18v12H3z"/><path d="M3 6l9 7 9-7"/></svg>
+						</span>
+						<a href="mailto:loceanvillierslebel@mail.com">loceanvillierslebel@mail.com</a>
+					</li>
+				</ul>
+				<img src="assets/fish-contact.png" alt="" class="home-contact-fish" aria-hidden="true">
 			</aside>
 		</div>
 	</section>
