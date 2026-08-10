@@ -682,7 +682,7 @@ h1,h2,h3,h4{ margin:0; font-weight:600; letter-spacing:.01em; }
 /* navbar transparente, superposée à la bannière (comme sur l'accueil) */
 .page-banner--nav{ padding-top:0; }
 .page-banner--nav .navbar{ position:relative; z-index:5; padding: 22px 40px; }
-.page-banner--nav .container{ padding-top: 50px; }
+.page-banner--nav .container{ padding-top: 18px; }
 
 .page-banner{
   position:relative;
