@@ -1,31 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-  var heroVideo = document.querySelector('.hero-video');
-  if (heroVideo) {
-    heroVideo.muted = true;
-    heroVideo.playsInline = true;
-
-    var tryPlay = function () {
-      var playPromise = heroVideo.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(function () {
-          var resumeOnInteraction = function () {
-            heroVideo.play();
-            document.removeEventListener('click', resumeOnInteraction);
-            document.removeEventListener('touchstart', resumeOnInteraction);
-          };
-          document.addEventListener('click', resumeOnInteraction, { once: true });
-          document.addEventListener('touchstart', resumeOnInteraction, { once: true });
-        });
-      }
-    };
-
-    if (heroVideo.readyState >= 2) {
-      tryPlay();
-    } else {
-      heroVideo.addEventListener('loadeddata', tryPlay, { once: true });
-    }
-  }
-
   var toggle = document.getElementById('navToggle');
   var links = document.getElementById('navLinks');
 
@@ -64,6 +37,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
   wireForm('reservationForm', 'reservationNote');
   wireForm('contactForm', 'contactNote');
+  wireForm('homeContactForm', 'homeContactNote');
+
+  // ---- Carousels (prestations / avis) ----
+  document.querySelectorAll('[data-carousel]').forEach(function (carousel) {
+    var track = carousel.querySelector('[data-carousel-track]');
+    var prev = carousel.querySelector('[data-carousel-prev]');
+    var next = carousel.querySelector('[data-carousel-next]');
+    if (!track) return;
+
+    function scrollByCard(dir) {
+      var card = track.querySelector(':scope > *');
+      var amount = card ? card.getBoundingClientRect().width + 26 : 300;
+      track.scrollBy({ left: dir * amount, behavior: 'smooth' });
+    }
+
+    if (prev) prev.addEventListener('click', function () { scrollByCard(-1); });
+    if (next) next.addEventListener('click', function () { scrollByCard(1); });
+  });
 
   // ---- Lightbox galerie ----
   var lightbox = document.getElementById('lightbox');
