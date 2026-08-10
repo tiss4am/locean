@@ -215,6 +215,57 @@ h1,h2,h3,h4{ margin:0; font-weight:600; letter-spacing:.01em; }
 .nav-links a.is-active{ opacity:1; }
 .nav-links a.is-active::after{ transform: scaleX(1); background: var(--accent-glow); }
 
+.nav-links__spacer{ display:none; }
+
+/* NAVBAR — variante "verre" façon maquette (accueil) */
+.navbar--glass{
+  background:
+    radial-gradient(circle at 20% 120%, rgba(255,255,255,.55) 0, transparent 22%),
+    radial-gradient(circle at 38% 100%, rgba(255,255,255,.4) 0, transparent 16%),
+    radial-gradient(circle at 82% 0%, rgba(255,255,255,.35) 0, transparent 20%),
+    linear-gradient(90deg, var(--cream) 0%, #DFF3F0 38%, #7FE3E6 72%, #35C6D6 100%);
+  border-bottom: 1px solid rgba(255,255,255,.5);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.navbar--glass .nav-links a{ color: var(--deep); font-weight:700; opacity:.85; }
+.navbar--glass .nav-links a::after{ background: var(--deep); }
+.navbar--glass .nav-links a.is-active::after{ background: var(--teal-strong); }
+.navbar--glass .nav-cta{ border-color: rgba(7,34,53,.35); color: var(--deep); }
+.navbar--glass .nav-cta:hover{ background: rgba(7,34,53,.08); border-color: var(--deep); }
+.navbar--glass .nav-toggle span{ background: var(--deep); }
+.navbar--glass .brand-logo{ filter: drop-shadow(0 2px 8px rgba(0,0,0,.12)); }
+
+.navbar__badge{
+  position:absolute; left:50%; top:50%;
+  transform: translate(-50%,-50%);
+  width:92px; height:92px;
+  border-radius:50%;
+  background: rgba(255,255,255,.4);
+  border: 1px solid rgba(255,255,255,.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 10px 26px rgba(4,27,45,.18);
+  display:flex; align-items:center; justify-content:center;
+  z-index:2;
+  pointer-events:none;
+}
+.navbar__badge-fish{
+  width:150px; max-width:none;
+  filter: drop-shadow(0 8px 12px rgba(4,27,45,.25));
+}
+
+@media (min-width: 761px){
+  .navbar--glass .nav-links{
+    position:static; transform:none;
+    display:flex; gap:30px; align-items:center;
+  }
+  .navbar--glass .nav-links__spacer{ display:block; width:130px; flex-shrink:0; }
+}
+@media (max-width: 760px){
+  .navbar__badge{ display:none; }
+}
+
 .nav-toggle{
   display:none;
   flex-direction:column;
