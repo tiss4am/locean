@@ -62,32 +62,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // ---- Sélecteur "Nos spécialités" (accueil) ----
-  var specialtyPhoto = document.getElementById('specialtyPhoto');
-  var specThumbs = document.getElementById('specThumbs');
-  if (specialtyPhoto && specThumbs) {
-    var thumbs = Array.prototype.slice.call(specThumbs.querySelectorAll('.thumb'));
-
-    thumbs.forEach(function (thumb) {
-      thumb.addEventListener('click', function () {
-        thumbs.forEach(function (t) { t.classList.remove('is-active'); });
-        thumb.classList.add('is-active');
-        specialtyPhoto.src = thumb.getAttribute('data-photo');
-      });
-    });
-
-    function activateRelative(delta) {
-      var idx = thumbs.findIndex(function (t) { return t.classList.contains('is-active'); });
-      var next = (idx + delta + thumbs.length) % thumbs.length;
-      thumbs[next].click();
-    }
-
-    var specPrev = document.getElementById('specPrev');
-    var specNext = document.getElementById('specNext');
-    if (specPrev) specPrev.addEventListener('click', function () { activateRelative(-1); });
-    if (specNext) specNext.addEventListener('click', function () { activateRelative(1); });
-  }
-
   // ---- Filtres de la carte (menu.html) ----
   var menuFilters = document.getElementById('menuFilters');
   var menuGrid = document.getElementById('menuGrid');

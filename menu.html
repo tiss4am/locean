@@ -14,21 +14,27 @@
 <body>
 
 	<header class="navbar" id="navbar">
+		<div class="navbar__bar"></div>
+		<div class="navbar__notch"></div>
 		<div class="navbar__inner">
-			<a href="index.html" class="brand">
-				<img src="assets/logo.png" alt="L'Océan" class="brand-logo">
-			</a>
 			<button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false">
 				<span></span><span></span><span></span>
 			</button>
-			<ul class="nav-links" id="navLinks">
-				<li><a href="index.html">Accueil</a></li>
-				<li><a href="menu.html" class="is-active">La carte</a></li>
-				<li><a href="contact.html">À propos</a></li>
-				<li><a href="galerie.html">Galerie</a></li>
-				<li><a href="contact.html#contact">Contact</a></li>
-			</ul>
-			<a href="reservation.html" class="btn btn--solid">Réserver</a>
+			<a href="index.html" class="brand">
+				<img src="assets/logo.png" alt="L'Océan" class="brand-logo">
+			</a>
+			<div class="nav-links" id="navLinks">
+				<ul class="nav-group nav-group--left">
+					<li><a href="index.html">Accueil</a></li>
+					<li><a href="menu.html" class="is-active">La carte</a></li>
+					<li><a href="contact.html">À propos</a></li>
+				</ul>
+				<ul class="nav-group nav-group--right">
+					<li><a href="galerie.html">Galerie</a></li>
+					<li><a href="contact.html#contact">Contact</a></li>
+					<li><a href="reservation.html" class="nav-cta">Réserver</a></li>
+				</ul>
+			</div>
 		</div>
 	</header>
 
