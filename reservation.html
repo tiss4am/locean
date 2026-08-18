@@ -1,195 +1,160 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Réservation — L'Océan — Restaurant à Villiers-le-Bel</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Réservation — L'Océan — Restaurant à Villiers-le-Bel</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Great+Vibes&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<section class="page-banner page-banner--nav">
-	<nav class="navbar">
-		<a href="index.html" class="brand">
-			<img src="assets/logo.png" alt="L'Océan" class="brand-logo">
-		</a>
-		<button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false">
-			<span></span><span></span><span></span>
-		</button>
-		<ul class="nav-links" id="navLinks">
-			<li><a href="index.html">Accueil</a></li>
-			<li><a href="menu.html">Menu</a></li>
-			<li><a href="reservation.html" class="is-active">Réservation</a></li>
-			<li><a href="galerie.html">Galerie</a></li>
-			<li><a href="contact.html">Contact</a></li>
-		</ul>
-		<a href="reservation.html" class="btn btn--ghost nav-cta">Réserver</a>
-	</nav>
-
-	<div class="container">
-		<p class="breadcrumb"><a href="index.html">Accueil</a><span>/</span><span>Réservation</span></p>
-		<h1>Réservation</h1>
-	</div>
-	<svg class="hero-wave" viewBox="0 0 1440 160" preserveAspectRatio="none" aria-hidden="true">
-		<path d="M0,64 C240,140 480,0 720,48 C960,96 1200,150 1440,80 L1440,160 L0,160 Z"></path>
-	</svg>
-</section>
-
-<section class="reservation-page">
-	<img src="assets/fish-contact.png" alt="" class="page-fish page-fish--left" aria-hidden="true">
-	<img src="assets/fish-contact.png" alt="" class="page-fish page-fish--right" aria-hidden="true">
-
-	<div class="container">
-		<div class="reservation-intro center">
-			<p class="eyebrow eyebrow--center">Table Reservation</p>
-			<h2 class="center">Réservez votre table</h2>
-			<p class="lead center">Choisissez la date, l'heure et le nombre de convives — nous confirmons
-				votre réservation par téléphone ou par email dans les plus brefs délais.</p>
-		</div>
-
-		<form class="reservation-form" id="reservationForm">
-			<div class="form-row">
-				<div class="form-field">
-					<label for="resFirstName">Prénom *</label>
-					<input type="text" id="resFirstName" name="firstName" required>
-				</div>
-				<div class="form-field">
-					<label for="resLastName">Nom *</label>
-					<input type="text" id="resLastName" name="lastName" required>
-				</div>
-			</div>
-
-			<div class="form-row">
-				<div class="form-field">
-					<label for="resEmail">Email *</label>
-					<input type="email" id="resEmail" name="email" required>
-				</div>
-				<div class="form-field">
-					<label for="resPhone">Téléphone *</label>
-					<input type="tel" id="resPhone" name="phone" required>
-				</div>
-			</div>
-
-			<div class="form-row form-row--3">
-				<div class="form-field">
-					<label for="resDate">Date *</label>
-					<input type="date" id="resDate" name="date" required>
-				</div>
-				<div class="form-field">
-					<label for="resTime">Heure *</label>
-					<input type="time" id="resTime" name="time" required>
-				</div>
-				<div class="form-field">
-					<label for="resGuests">Personnes *</label>
-					<select id="resGuests" name="guests" required>
-						<option value="" disabled selected>Choisir</option>
-						<option value="1">1 personne</option>
-						<option value="2">2 personnes</option>
-						<option value="3">3 personnes</option>
-						<option value="4">4 personnes</option>
-						<option value="5">5 personnes</option>
-						<option value="6">6 personnes</option>
-						<option value="7+">7 personnes ou +</option>
-					</select>
-				</div>
-			</div>
-
-			<div class="form-field">
-				<label for="resMessage">Message (optionnel)</label>
-				<textarea id="resMessage" name="message" rows="3" placeholder="Allergie, anniversaire, demande particulière..."></textarea>
-			</div>
-
-			<button type="submit" class="btn btn--solid reservation-submit">Réserver une table →</button>
-			<p class="form-note" id="reservationNote" hidden>Merci ! Votre demande a bien été enregistrée, nous vous recontactons rapidement pour la confirmer.</p>
-		</form>
-	</div>
-</section>
-
-<section class="contact-strip-section">
-	<div class="container">
-		<div class="contact-strip">
-			<div class="contact-strip__item">
-				<div class="contact-strip__icon">
-					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18v12H3z"/><path d="M3 6l9 7 9-7"/></svg>
-				</div>
-				<h4>Écrivez-nous</h4>
-				<p><a href="contact.html">Formulaire de contact</a></p>
-			</div>
-			<div class="contact-strip__item">
-				<div class="contact-strip__icon">
-					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-				</div>
-				<h4>Appelez-nous</h4>
-				<p><a href="tel:0139928640">01 39 92 86 40</a></p>
-			</div>
-			<div class="contact-strip__item">
-				<div class="contact-strip__icon">
-					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-				</div>
-				<h4>Rendez-nous visite</h4>
-				<p><a href="https://www.google.com/maps/search/?api=1&query=5+Av.+des+Entrepreneurs+95400+Villiers-le-Bel+L%27Oc%C3%A9an" target="_blank" rel="noopener">5 Av. des Entrepreneurs, 95400 Villiers-le-Bel</a></p>
-			</div>
-		</div>
-	</div>
-</section>
-
-<footer class="site-footer">
-	<div class="wave-divider wave-divider--top" aria-hidden="true">
-		<svg viewBox="0 0 1440 100" preserveAspectRatio="none"><path d="M0,40 C360,110 1080,-10 1440,60 L1440,100 L0,100 Z"></path></svg>
-	</div>
-
-	<div class="container footer-grid">
-		<div class="footer-col footer-brand">
-			<img src="assets/logo.png" alt="L'Océan" class="footer-logo">
-			<p>Restaurant de poissons et fruits de mer à Villiers-le-Bel. Cuisine méditerranéenne, produits frais et ambiance familiale.</p>
-			<div class="hero-rating hero-rating--footer">
-				<span class="stars">★★★★★</span>
-				<span>4,5 · 242 avis</span>
-			</div>
-		</div>
-
-		<div class="footer-col">
-			<h4>Contact</h4>
-			<p>5 Av. des Entrepreneurs<br>95400 Villiers-le-Bel</p>
-			<p><a href="tel:0139928640">01 39 92 86 40</a></p>
-			<a class="link-arrow" href="https://www.google.com/maps/search/?api=1&query=5+Av.+des+Entrepreneurs+95400+Villiers-le-Bel+L%27Oc%C3%A9an" target="_blank" rel="noopener">Itinéraire →</a>
-		</div>
-
-		<div class="footer-col">
-			<h4>Horaires</h4>
-			<ul class="hours-list">
-				<li><span>Lundi</span><span>18:00–23:00</span></li>
-				<li><span>Mardi</span><span>12:00–15:00, 18:00–23:00</span></li>
-				<li><span>Mercredi</span><span>12:00–15:00, 18:00–23:00</span></li>
-				<li><span>Jeudi</span><span>12:00–15:00, 18:00–23:00</span></li>
-				<li><span>Vendredi</span><span>15:00–23:00</span></li>
-				<li><span>Samedi</span><span>12:00–23:00</span></li>
-				<li><span>Dimanche</span><span>12:00–23:00</span></li>
+	<header class="navbar" id="navbar">
+		<div class="navbar__inner">
+			<a href="index.html" class="brand">
+				<img src="assets/logo.png" alt="L'Océan" class="brand-logo">
+			</a>
+			<button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false">
+				<span></span><span></span><span></span>
+			</button>
+			<ul class="nav-links" id="navLinks">
+				<li><a href="index.html">Accueil</a></li>
+				<li><a href="menu.html">La carte</a></li>
+				<li><a href="contact.html">À propos</a></li>
+				<li><a href="galerie.html">Galerie</a></li>
+				<li><a href="contact.html#contact">Contact</a></li>
 			</ul>
+			<a href="reservation.html" class="btn btn--solid">Réserver</a>
 		</div>
+	</header>
 
-		<div class="footer-col">
-			<h4>Suivez-nous</h4>
-			<div class="social-row">
-				<a href="https://www.facebook.com/p/Locean-Villiers-le-bel-100057273706252/?locale=fr_FR" target="_blank" rel="noopener" aria-label="Facebook">
-					<svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.5h2.5l.5-3h-3V8.3c0-.87.24-1.46 1.5-1.46H16.6V4.14C16.3 4.1 15.3 4 14.1 4c-2.4 0-4.1 1.47-4.1 4.16V10.5H7.5v3H10V21h3.5z"/></svg>
-				</a>
-				<a href="https://www.instagram.com/locean.restaurant/?hl=fr" target="_blank" rel="noopener" aria-label="Instagram">
-					<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c2.7 0 3.05.01 4.12.06 1.07.05 1.8.22 2.43.47.66.26 1.22.6 1.77 1.15.55.55.9 1.11 1.15 1.77.25.63.42 1.36.47 2.43.05 1.07.06 1.42.06 4.12s-.01 3.05-.06 4.12c-.05 1.07-.22 1.8-.47 2.43a4.9 4.9 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.15c-.63.25-1.36.42-2.43.47-1.07.05-1.42.06-4.12.06s-3.05-.01-4.12-.06c-1.07-.05-1.8-.22-2.43-.47a4.9 4.9 0 0 1-1.77-1.15 4.9 4.9 0 0 1-1.15-1.77c-.25-.63-.42-1.36-.47-2.43C2.01 15.05 2 14.7 2 12s.01-3.05.06-4.12c.05-1.07.22-1.8.47-2.43.26-.66.6-1.22 1.15-1.77A4.9 4.9 0 0 1 5.45.53C6.08.28 6.81.11 7.88.06 8.95.01 9.3 0 12 0zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zm5.2-8.4a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z" transform="translate(0 2)"/></svg>
-				</a>
+	<main class="page-shell reservation-page">
+		<div class="container reservation-grid">
+			<div>
+				<p class="reservation-tag">Table &amp; Expérience</p>
+				<h1><em>Réservez votre</em> table</h1>
+				<p class="lead">Vivez une expérience culinaire d'exception. Sélectionnez vos préférences et nous nous occupons du reste.</p>
+
+				<div class="reservation-form-card">
+					<form id="reservationForm">
+						<div class="form-row">
+							<div class="form-field">
+								<label for="resNom">Nom</label>
+								<input type="text" id="resNom" name="nom" placeholder="Dupont" required>
+							</div>
+							<div class="form-field">
+								<label for="resPrenom">Prénom</label>
+								<input type="text" id="resPrenom" name="prenom" placeholder="Jean" required>
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-field">
+								<label for="resTel">Téléphone</label>
+								<input type="tel" id="resTel" name="telephone" placeholder="+33 6 00 00 00 00" required>
+							</div>
+							<div class="form-field">
+								<label for="resEmail">Email</label>
+								<input type="email" id="resEmail" name="email" placeholder="jean.dupont@email.com" required>
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-field">
+								<label for="resPersonnes">Nombre de personnes</label>
+								<select id="resPersonnes" name="personnes">
+									<option>1 personne</option>
+									<option selected>2 personnes</option>
+									<option>3 personnes</option>
+									<option>4 personnes</option>
+									<option>5 personnes</option>
+									<option>6 personnes</option>
+									<option>7 personnes ou plus</option>
+								</select>
+							</div>
+							<div class="form-field">
+								<label for="resDate">Date</label>
+								<input type="date" id="resDate" name="date" required>
+							</div>
+						</div>
+						<div class="form-field">
+							<label>Heure souhaitée</label>
+							<div class="time-row" id="timeRow">
+								<button type="button" class="time-btn" data-time="19:30">19:30</button>
+								<button type="button" class="time-btn is-active" data-time="20:00">20:00</button>
+								<button type="button" class="time-btn" data-time="20:30">20:30</button>
+								<button type="button" class="time-btn" data-time="21:00">21:00</button>
+							</div>
+						</div>
+						<div class="form-field">
+							<label for="resMessage">Message ou allergies (optionnel)</label>
+							<textarea id="resMessage" name="message" placeholder="Une occasion particulière ? Un régime spécifique ?"></textarea>
+						</div>
+						<button type="submit" class="btn btn--solid btn--block">Demander une réservation <svg class="icon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"><circle cx="12" cy="5" r="2"/><path d="M12 7v14M5 12H2a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-3M8 9l-3 3M16 9l3 3"/></svg></button>
+						<p class="form-disclaimer"><svg class="icon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg> Une confirmation vous sera envoyée par SMS dans les 15 minutes.</p>
+						<p class="form-note" id="reservationNote" hidden>Merci ! Votre demande de réservation a bien été envoyée.</p>
+					</form>
+				</div>
 			</div>
-			<a class="btn btn--outline btn--small" href="reservation.html">Réserver</a>
+
+			<aside class="reservation-side">
+				<img src="assets/plateau-fruits-de-mer.png" alt="Plateau de fruits de mer de L'Océan">
+				<div class="reservation-info">
+					<h4>Informations</h4>
+					<div class="reservation-info-item">
+						<svg class="icon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+						<div><strong>Dernier service</strong><span>22:30 pour la cuisine</span></div>
+					</div>
+					<div class="reservation-info-item">
+						<svg class="icon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+						<div><strong>Groupes</strong><span>Au delà de 8 personnes, contactez-nous par téléphone.</span></div>
+					</div>
+				</div>
+			</aside>
 		</div>
-	</div>
+	</main>
 
-	<div class="footer-bottom container">
-		<p>© 2026 L'Océan — Villiers-le-Bel. Tous droits réservés.</p>
-	</div>
-</footer>
+	<!-- ================= FOOTER ================= -->
+	<footer class="site-footer">
+		<div class="container footer-grid">
+			<div class="footer-col">
+				<img src="assets/logo.png" alt="L'Océan" class="footer-brand__logo">
+				<p>L'excellence des produits de la mer, préparés avec passion et servis avec générosité dans un cadre chaleureux.</p>
+			</div>
+			<div class="footer-col">
+				<h4>Navigation</h4>
+				<div class="footer-links">
+					<a href="index.html">Accueil</a>
+					<a href="menu.html">La carte</a>
+					<a href="contact.html">À propos</a>
+					<a href="contact.html#contact">Contact</a>
+				</div>
+			</div>
+			<div class="footer-col">
+				<h4>Contact</h4>
+				<div class="footer-contact-item"><svg class="icon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>5 Av. des Entrepreneurs,<br>95400 Villiers-le-Bel</span></div>
+				<div class="footer-contact-item"><svg class="icon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>01 39 92 86 40</span></div>
+			</div>
+			<div class="footer-col">
+				<h4>Suivez-nous</h4>
+				<div class="footer-social">
+					<a href="https://www.facebook.com/p/Locean-Villiers-le-bel-100057273706252/?locale=fr_FR" target="_blank" rel="noopener" aria-label="Facebook"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M13.5 21v-7.5h2.5l.5-3h-3V8.3c0-.87.24-1.46 1.5-1.46H16.6V4.14C16.3 4.1 15.3 4 14.1 4c-2.4 0-4.1 1.47-4.1 4.16V10.5H7.5v3H10V21h3.5z"/></svg></a>
+					<a href="https://www.instagram.com/locean.restaurant/?hl=fr" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2c2.7 0 3.05.01 4.12.06 1.07.05 1.8.22 2.43.47.66.26 1.22.6 1.77 1.15.55.55.9 1.11 1.15 1.77.25.63.42 1.36.47 2.43.05 1.07.06 1.42.06 4.12s-.01 3.05-.06 4.12c-.05 1.07-.22 1.8-.47 2.43a4.9 4.9 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.15c-.63.25-1.36.42-2.43.47-1.07.05-1.42.06-4.12.06s-3.05-.01-4.12-.06c-1.07-.05-1.8-.22-2.43-.47a4.9 4.9 0 0 1-1.77-1.15 4.9 4.9 0 0 1-1.15-1.77c-.25-.63-.42-1.36-.47-2.43C2.01 15.05 2 14.7 2 12s.01-3.05.06-4.12c.05-1.07.22-1.8.47-2.43.26-.66.6-1.22 1.15-1.77A4.9 4.9 0 0 1 5.45.53C6.08.28 6.81.11 7.88.06 8.95.01 9.3 0 12 0zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zm5.2-8.4a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z" transform="translate(0 2)"/></svg></a>
+				</div>
+			</div>
+		</div>
+		<div class="container footer-bottom">
+			<p>© 2026 L'Océan — Villiers-le-Bel. Tous droits réservés.</p>
+			<div class="footer-bottom-links">
+				<a href="#">Mentions légales</a>
+				<a href="#">Confidentialité</a>
+			</div>
+		</div>
+	</footer>
 
-<script src="script.js"></script>
+	<script src="script.js"></script>
 </body>
+
 </html>
