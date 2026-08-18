@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // ---- Formulaires réservation / contact ----
+  // ---- Formulaire réservation ----
   // Pas de backend branché : on affiche juste une confirmation visuelle.
   var resDate = document.getElementById('resDate');
   if (resDate) {
@@ -36,25 +36,109 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   wireForm('reservationForm', 'reservationNote');
-  wireForm('contactForm', 'contactNote');
-  wireForm('homeContactForm', 'homeContactNote');
 
-  // ---- Carousels (prestations / avis) ----
-  document.querySelectorAll('[data-carousel]').forEach(function (carousel) {
-    var track = carousel.querySelector('[data-carousel-track]');
-    var prev = carousel.querySelector('[data-carousel-prev]');
-    var next = carousel.querySelector('[data-carousel-next]');
-    if (!track) return;
+  // ---- Heure souhaitée (réservation) ----
+  var timeRow = document.getElementById('timeRow');
+  if (timeRow) {
+    timeRow.querySelectorAll('.time-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        timeRow.querySelectorAll('.time-btn').forEach(function (b) { b.classList.remove('is-active'); });
+        btn.classList.add('is-active');
+      });
+    });
+  }
 
-    function scrollByCard(dir) {
-      var card = track.querySelector(':scope > *');
-      var amount = card ? card.getBoundingClientRect().width + 26 : 300;
-      track.scrollBy({ left: dir * amount, behavior: 'smooth' });
+  // ---- Carousel avis clients (accueil) ----
+  document.querySelectorAll('[data-carousel-arrows]').forEach(function (wrap) {
+    var target = document.getElementById(wrap.getAttribute('data-carousel-arrows'));
+    if (!target) return;
+    wrap.querySelectorAll('button').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var dir = parseInt(btn.getAttribute('data-dir'), 10) || 1;
+        var card = target.querySelector(':scope > *');
+        var amount = card ? card.getBoundingClientRect().width + 24 : 300;
+        target.scrollBy({ left: dir * amount, behavior: 'smooth' });
+      });
+    });
+  });
+
+  // ---- Sélecteur "Nos spécialités" (accueil) ----
+  var specialtyPhoto = document.getElementById('specialtyPhoto');
+  var specThumbs = document.getElementById('specThumbs');
+  if (specialtyPhoto && specThumbs) {
+    var thumbs = Array.prototype.slice.call(specThumbs.querySelectorAll('.thumb'));
+
+    thumbs.forEach(function (thumb) {
+      thumb.addEventListener('click', function () {
+        thumbs.forEach(function (t) { t.classList.remove('is-active'); });
+        thumb.classList.add('is-active');
+        specialtyPhoto.src = thumb.getAttribute('data-photo');
+      });
+    });
+
+    function activateRelative(delta) {
+      var idx = thumbs.findIndex(function (t) { return t.classList.contains('is-active'); });
+      var next = (idx + delta + thumbs.length) % thumbs.length;
+      thumbs[next].click();
     }
 
-    if (prev) prev.addEventListener('click', function () { scrollByCard(-1); });
-    if (next) next.addEventListener('click', function () { scrollByCard(1); });
-  });
+    var specPrev = document.getElementById('specPrev');
+    var specNext = document.getElementById('specNext');
+    if (specPrev) specPrev.addEventListener('click', function () { activateRelative(-1); });
+    if (specNext) specNext.addEventListener('click', function () { activateRelative(1); });
+  }
+
+  // ---- Filtres de la carte (menu.html) ----
+  var menuFilters = document.getElementById('menuFilters');
+  var menuGrid = document.getElementById('menuGrid');
+  if (menuFilters && menuGrid) {
+    var menuCards = Array.prototype.slice.call(menuGrid.querySelectorAll('.menu-card'));
+    menuFilters.querySelectorAll('button').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        menuFilters.querySelectorAll('button').forEach(function (b) { b.classList.remove('is-active'); });
+        btn.classList.add('is-active');
+        var filter = btn.getAttribute('data-filter');
+        menuCards.forEach(function (card) {
+          var show = filter === 'tout' || card.getAttribute('data-category') === filter;
+          card.style.display = show ? '' : 'none';
+        });
+      });
+    });
+  }
+
+  // ---- Fiche produit (menu.html) ----
+  var productModal = document.getElementById('productModal');
+  if (productModal) {
+    var pmPhoto = document.getElementById('productModalPhoto');
+    var pmName = document.getElementById('productModalName');
+    var pmDesc = document.getElementById('productModalDesc');
+    var pmPrice = document.getElementById('productModalPrice');
+    var pmClose = document.getElementById('productModalClose');
+
+    document.querySelectorAll('.menu-card__add').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        pmPhoto.src = btn.getAttribute('data-photo');
+        pmPhoto.alt = btn.getAttribute('data-name') || '';
+        pmName.textContent = btn.getAttribute('data-name');
+        pmDesc.textContent = btn.getAttribute('data-desc');
+        pmPrice.textContent = btn.getAttribute('data-price');
+        productModal.classList.add('is-open');
+        productModal.setAttribute('aria-hidden', 'false');
+      });
+    });
+
+    function closeProductModal() {
+      productModal.classList.remove('is-open');
+      productModal.setAttribute('aria-hidden', 'true');
+    }
+    if (pmClose) pmClose.addEventListener('click', closeProductModal);
+    productModal.addEventListener('click', function (e) {
+      if (e.target === productModal) closeProductModal();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeProductModal();
+    });
+  }
 
   // ---- Lightbox galerie ----
   var lightbox = document.getElementById('lightbox');
