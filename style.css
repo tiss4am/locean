@@ -108,27 +108,26 @@ h1,h2,h3,h4{ margin:0; font-weight:600; }
   z-index: 50;
   height: 92px;
 }
-.navbar__bar{
-  position:absolute; inset:0;
+/* forme unique = rectangle + cercle central fusionnés (union, façon Figma) */
+.navbar__shape{
+  --barH: 92px;
+  --r: 92px;
+  position:absolute; left:0; right:0; top:0;
+  height: 184px;
   background: rgba(255,255,255,.08);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255,255,255,.12);
-}
-/* la protubérance ronde centrale qui accueille le logo */
-.navbar__notch{
-  position:absolute;
-  left:50%; top:0;
-  transform: translateX(-50%);
-  width: 210px; height: 168px;
-  background: rgba(255,255,255,.08);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-radius: 0 0 999px 999px;
-  border-bottom:1px solid rgba(255,255,255,.12);
-  border-left:1px solid rgba(255,255,255,.12);
-  border-right:1px solid rgba(255,255,255,.12);
+  pointer-events:none;
   z-index:1;
+  /* masque : bande pleine largeur (la barre) + cercle centré sur son bord bas (la bulle) */
+  -webkit-mask:
+    linear-gradient(#000,#000) top left / 100% var(--barH) no-repeat,
+    radial-gradient(circle var(--r) at 50% var(--barH), #000 99%, transparent 100%);
+  mask:
+    linear-gradient(#000,#000) top left / 100% var(--barH) no-repeat,
+    radial-gradient(circle var(--r) at 50% var(--barH), #000 99%, transparent 100%);
+  /* fin liséré qui suit le contour de l'union */
+  filter: drop-shadow(0 1px 0 rgba(255,255,255,.14));
 }
 .navbar__inner{
   position:relative;
@@ -208,8 +207,8 @@ h1,h2,h3,h4{ margin:0; font-weight:600; }
 .hero{
   position:relative;
   overflow:hidden;
-  padding: 200px 0 88px;
-  min-height: 92vh;
+  padding: 128px 0 72px;
+  min-height: 78vh;
   display:flex;
   align-items:center;
 }
@@ -725,8 +724,12 @@ h1,h2,h3,h4{ margin:0; font-weight:600; }
 
 @media (max-width: 900px){
   .navbar{ height: 76px; }
-  .navbar__bar{ border-bottom:1px solid var(--line); }
-  .navbar__notch{ display:none; }
+  .navbar__shape{
+    height:76px;
+    -webkit-mask:none; mask:none;
+    filter:none;
+    border-bottom:1px solid var(--line);
+  }
   .navbar__inner{ height:76px; padding: 0 22px; }
   .brand{ position:static; transform:none; }
   .brand-logo{ height:54px; filter:none; }
